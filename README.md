@@ -1,4 +1,8 @@
-![logo_picture](https://github.com/jaypyles/www-scrape/blob/master/docs/logo_picture.png)
+# Scraperr
+
+![logo_picture](./docs/logo_picture.png)
+
+<!-- markdownlint-disable MD033 -->
 
 <div align="center">
   <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
@@ -6,8 +10,6 @@
   <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next JS" />
   <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
 </div>
-
-# Summary
 
 Scraperr is a self-hosted web application that allows users to scrape data from web pages by specifying elements via XPath. Users can submit URLs and the corresponding elements to be scraped, and the results will be displayed in a table.
 
@@ -72,10 +74,10 @@ Use this service as an API for your own projects. Due to this using FastAPI, a d
 
 ## Troubleshooting
 
-Q: When running Scraperr, I'm met with "404 Page not found".  
-A: This is probably an issue with MongoDB related to running Scraperr in a VM. You should see something liks this in `make logs`:
+Q: When running Scraperr, I'm met with "404 Page not found".
+A: This is probably an issue with MongoDB related to running Scraperr in a VM. You should see something like this in `make logs`:
 
-```
+```log
 WARNING: MongoDB 5.0+ requires a CPU with AVX support, and your current system does not appear to have that!
 ```
 
