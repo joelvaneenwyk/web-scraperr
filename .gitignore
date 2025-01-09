@@ -188,3 +188,7 @@ postgres_data
 .vscode
 ollama
 data
+
+/.git/
+
+.build/
