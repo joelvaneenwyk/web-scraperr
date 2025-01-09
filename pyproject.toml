@@ -1,7 +1,7 @@
 [project]
 name = "scraperr"
 version = "0.1.0"
-description = ""
+description = "Self-hosted web application to scrape data from web pages via XPath, view results, download them, rerun jobs, and more."
 authors = [{ name = "Jayden Pyles", email = "jpylesbuisness@gmail.com" }]
 dependencies = [
     "uvicorn>=0.30.1",
