@@ -1,7 +1,8 @@
 .DEFAULT_GOAL := help
 
-COMPOSE_DEV = docker compose -f docker-compose.yml -f docker-compose.dev.yml
-COMPOSE_PROD = docker compose -f docker-compose.yml
+DOCKER = docker
+COMPOSE_DEV = $(DOCKER) compose -f docker-compose.yml -f docker-compose.dev.yml
+COMPOSE_PROD = $(DOCKER) compose -f docker-compose.yml
 
 .PHONY: help all deps build pull up up-dev down setup deploy
 
@@ -39,7 +40,7 @@ build-force:
 	$(COMPOSE_DEV) build --no-cache
 
 pull:
-	docker compose pull
+	$(DOCKER) compose pull
 
 up:
 	$(COMPOSE_PROD) up -d --force-recreate
