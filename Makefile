@@ -25,12 +25,12 @@ logs:
 	docker compose logs -f
 
 lock:
-	pdm lock --refresh -S direct_minimal_versions,cross_platform,static_urls
+	uv run pdm lock --refresh -S direct_minimal_versions,static_urls
 
 deps:
 	npm install
 	npm run build
-	pdm install -v
+	uv run pdm install -v
 
 build:
 	$(COMPOSE_DEV) build
