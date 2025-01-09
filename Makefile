@@ -1,8 +1,9 @@
 .DEFAULT_GOAL := help
 
-DOCKER = docker
-COMPOSE_DEV = $(DOCKER) compose -f docker-compose.yml -f docker-compose.dev.yml
-COMPOSE_PROD = $(DOCKER) compose -f docker-compose.yml
+CONTAINER_RUN := $(shell command -v docker >/dev/null 2>&1 && echo docker || echo podman)
+COMPOSE = $(CONTAINER_RUN) compose
+COMPOSE_DEV = $(COMPOSE) -f docker-compose.yml -f docker-compose.dev.yml
+COMPOSE_PROD = $(COMPOSE) -f docker-compose.yml
 
 .PHONY: help all deps build pull up up-dev down setup deploy
 
@@ -40,7 +41,7 @@ build-force:
 	$(COMPOSE_DEV) build --no-cache
 
 pull:
-	$(DOCKER) compose pull
+	$(COMPOSE) pull
 
 up:
 	$(COMPOSE_PROD) up -d --force-recreate
