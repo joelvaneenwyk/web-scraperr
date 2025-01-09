@@ -1,0 +1,11 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions:
+  - name: scraperr
+    path: ./.github/config/scraperr.dict
+    addWords: true
+dictionaries:
+  - scraperr
+words: []
+ignoreWords: []
+import: []
