@@ -3,7 +3,7 @@
 COMPOSE_DEV = docker compose -f docker-compose.yml -f docker-compose.dev.yml
 COMPOSE_PROD = docker compose -f docker-compose.yml
 
-.PHONY: help deps build pull up up-dev down setup deploy
+.PHONY: help all deps build pull up up-dev down setup deploy
 
 help:
 	@echo "Usage:"
@@ -19,13 +19,18 @@ help:
 	@echo "  make deploy  		- Deploy site onto server"
 	@echo ""
 
+all: deps build
+
 logs:
 	docker compose logs -f
 
+lock:
+	pdm lock --refresh -S direct_minimal_versions,cross_platform,static_urls
+
 deps:
-	pdm install
 	npm install
 	npm run build
+	pdm install -v
 
 build:
 	$(COMPOSE_DEV) build
